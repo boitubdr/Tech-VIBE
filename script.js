@@ -3,7 +3,7 @@ const products = [
         id:1,
         name:"iphone 15-pro",
         price:999,
-        category:"phone",
+        category:"phones",
         image:"https://via.placeholder.com/300x200/3bef6/white?text=iPhone+15+Pro",
         description:"The latest iPhone with amazing camera and performance"
     },
@@ -11,7 +11,7 @@ const products = [
         id:2,
         name:"MacBook Air",
         price:1199,
-        category:"laptop",
+        category:"laptops",
         image:"https://via.placeholder.com/300x200/3bef6/white?text=MacBook+Air",
         description:"Lightweight laptop prefect for work and creativity"
     },
@@ -59,13 +59,64 @@ let cart = [];
 
 const cartCountElement = document.getElementById('cart-count');  
 const productsGrid = document.getElementById('products-grid');
-const featuredProducts = document.getAnimations('featured-prpoducts');
+const featuredProducts = document.getElementById('featured-poducts');
 
 // Step 4: Utility function to format prices
 // This will make a price look like "R99 instead of "999"
 function formatPrices(price) {
-    return "R" + price.tofixed(2) 
+    return "R" + price.tofixed(2); 
 }
 
-console.log('JavaScript Loads succesfully');
-console.log('We have',products.length,'products.')
+console.log('JavaScript Loads succesfully!');
+console.log('We have',products.length,'products');  
+
+function createProductsCard(products): {
+    return`
+    <div class="product-card"> 
+        <img src="${prodcut.image}"alt="${prodct.name}"class="product-images">
+            <div class="product-info">
+            <h3 class="product -title">${product.name}</h3>
+            <p class="product-description">${product.description}</p>
+            <div class="product-price">${formatPrice(product.price)}</div>
+            <div class="product-action">
+                <button class="btn btn-primary btn-small" onclick="addToCart(${product})">
+                Add To Cart
+            </button>
+             <div class="product-action">
+                <button class="btn btn-secondary btn-small" onclick="viewProduct(${product.id})">
+                View Details
+            </button>               
+            </div>
+        </div>
+    </div> `
+}
+ 
+function displayProducts(productsToShow:=products){
+    if (productsGrid) {
+        const productsHTML= productsToShow.map(createProductsCard).join('');
+        productsGrid.innerHTML= productsHTML;
+    }
+} 
+ 
+ if(featuredProducts){
+    const featuredHTML = productsToShow.slice(0,3).map(createProductsCard).join();
+    featuredProducts.innerHTML=featuredHTML;
+ }
+
+ function addToCart(productId) {
+    alert('Product ${productId} added to cart');
+  
+ }
+
+function viewProduct(productId) {
+    const product= products.find(prod  => .prod id=== productId);
+    alert('Product: '+ product.name + 
+    '\nPrice:' + formatPrice(product.price) +
+    '\nDescription:'+ product.description);   
+}
+
+document.addEventlistener('DOMContentLoaded',function()) {
+    console.log('page loaded,display Products....');
+    displayProducts(products);
+    
+}
