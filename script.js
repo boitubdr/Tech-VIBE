@@ -120,3 +120,37 @@ document.addEventlistener('DOMContentLoaded',function()) {
     displayProducts(products);
     
 }
+//function to handle filter button clicks
+function setupFilters(){
+    const=document.querySelectorAll('.filter-btn');
+    
+    filterbuttons.forEach(element => {
+        button.addEventlistener('click',function9()){
+     // Rmove active from all buttons   
+    filterbuttons.forEach(btn => btn.classlist.remove('active'))};
+     // Add active class to the clicked button
+     this.classlist.add('active');
+     //Get the category from the buttons data-category attribute
+     const category = this.gettAttribute('data-category');
+     
+     //filter products based on category
+     let filteredProduct;
+     if(category  ==='all'){
+        filteredProduct=products
+     }else{
+        featuredProducts = products.filter(product: => product.category ===category)
+     }
+      displayProducts(filteredProducts);
+      
+      console.log('Showing',filteredProducts.length,'product in category');
+
+    });
+}
+
+document.addEventlistener('DOMContentLoaded',function()) {
+    console.log('page loaded,display Products....');
+    displayProducts(products);
+    setupFilters();
+}
+    
+
