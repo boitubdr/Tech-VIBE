@@ -75,7 +75,7 @@ body{
     color:white;
     text-align:center;
     padding:90px 60px 100px;
-    margin-top:70px:
+    margin-top:70px;
 }
 
 .hero h1{
@@ -191,7 +191,7 @@ body{
 }
 
 .btn-secondary:hover{
-    background-color#cbd5e1;
+    background-color:#cbd5e1;
 }
 
 .footer{
@@ -204,7 +204,7 @@ body{
 .main-content{
     margin-top:70px;
     padding:60px 0;
-    main-height:calc(100vh-140px);
+    min-height:calc(100vh-140px);
 }
 
 .page-title{
